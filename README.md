@@ -28,7 +28,8 @@ You will need a modified version of the game, such as D2RModding, to be able to 
 
 == Version History ==
 
- * v1.0.1: Fixed a major issue that rendered the tool useless.
+ * v1.0.3: Fixed Find feature not working properly.
+ * v1.0.2: Fixed a major issue that rendered the tool useless.
  * v1.0.0: Initial revision.
 
 == Future Goals ==
