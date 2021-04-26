@@ -67,8 +67,8 @@ namespace D2RModding_StrEdit
             directory = dir;
 
             // load up!
-            resurrectedBanks = MakeBanks(dir + "\\strings");
-            legacyBanks = MakeBanks(dir + "\\strings-legacy");
+            resurrectedBanks = MakeBanks(dir + "\\strings", null);
+            legacyBanks = MakeBanks(dir + "\\strings-legacy", resurrectedBanks);
 
             // parse the next_string_id.txt crap
             string next_valid_id = File.ReadAllText(dir + "\\next_string_id.txt");
