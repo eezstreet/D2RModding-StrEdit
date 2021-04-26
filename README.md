@@ -12,6 +12,10 @@ Open D2RStrEdit and select `<game dir>/data/local/lng` as the workspace. Now you
 
 You will need a modified version of the game, such as D2RModding, to be able to load the modified files.
 
+== Screenshots ==
+
+![D2RStrEdit](./img/d2r_stredit.png)
+
 == Hotkeys ==
 
  * CTRL-O = Open
