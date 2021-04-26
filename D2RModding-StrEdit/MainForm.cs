@@ -134,7 +134,7 @@ namespace D2RModding_StrEdit
          */
         private void d2RModdingDiscordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("...url..."); // TODO
+            System.Diagnostics.Process.Start("https://discord.gg/gvsJBRd4KZ");
         }
 
         /**
