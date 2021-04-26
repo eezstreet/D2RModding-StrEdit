@@ -293,7 +293,15 @@ namespace D2RModding_StrEdit
         }
         private void goTo_key(string key)
         {
-            stringListBox.SelectedItem = key;
+            StringEntry[] x = stringListBox.DataSource as StringEntry[];
+            for(var i = 0; i < x.Length; i++)
+            {
+                if(x[i].Key == key)
+                {
+                    stringListBox.SelectedIndex = i;
+                    break;
+                }
+            }
         }
         private bool goTo_nextKeyInList(string[] keys)
         {
