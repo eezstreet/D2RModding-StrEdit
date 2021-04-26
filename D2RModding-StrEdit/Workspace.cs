@@ -27,6 +27,11 @@ namespace D2RModding_StrEdit
                 {
                     for(var j = StringEntry.StringLanguages.LANG_enUS; j < StringEntry.StringLanguages.LANG_MAX; j++)
                     {
+                        if(i >= newEntries.Length)
+                        {
+                            newEntries = newEntries.Concat(fallback.Skip(newEntries.Length)).ToArray();
+                            break; // just append new entries here.
+                        }
                         string langString = newEntries[i].getStringForLanguage(j);
                         if(langString == null || langString == "")
                         {
@@ -51,7 +56,9 @@ namespace D2RModding_StrEdit
             {
                 if(fallback != null)
                 {
-                    dict[Path.GetFileNameWithoutExtension(dir + file)] = EntriesFromFile(file, fallback[file]);
+                    StringEntry[] value;
+                    fallback.TryGetValue(Path.GetFileNameWithoutExtension(file), out value);
+                    dict[Path.GetFileNameWithoutExtension(dir + file)] = EntriesFromFile(file, value);
                 }
                 else
                 {
