@@ -459,8 +459,13 @@ namespace D2RModding_StrEdit
         private void DeleteCurrentKey()
         {
             workspace.RemoveString(selectedStrId);
+            
+            StringEntry[] legacy, resurrected;
+            StringEntryEqualityComparer eq = new StringEntryEqualityComparer();
+            workspace.GetStringsInBank(selectedBank, out legacy, out resurrected);
+            var newDataSource = legacy.Union(resurrected, eq).ToArray();
+            stringListBox.DataSource = newDataSource;
             stringListBox.SelectedIndex = -1;
-            modified = true;
         }
         private void ScrollKeyUp()
         {
