@@ -72,7 +72,7 @@ namespace D2RModding_StrEdit
             this.findButton.Location = new System.Drawing.Point(209, 91);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(75, 22);
-            this.findButton.TabIndex = 0;
+            this.findButton.TabIndex = 3;
             this.findButton.Text = "Find";
             this.findButton.UseVisualStyleBackColor = true;
             this.findButton.Click += new System.EventHandler(this.onFindClicked);
@@ -85,7 +85,7 @@ namespace D2RModding_StrEdit
             this.find_InText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.find_InText.Name = "find_InText";
             this.find_InText.Size = new System.Drawing.Size(257, 30);
-            this.find_InText.TabIndex = 1;
+            this.find_InText.TabIndex = 2;
             this.find_InText.Text = "Find in Text";
             this.find_InText.UseVisualStyleBackColor = true;
             this.find_InText.CheckedChanged += new System.EventHandler(this.onRadioSelection);
@@ -99,7 +99,7 @@ namespace D2RModding_StrEdit
             this.find_InKeys.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.find_InKeys.Name = "find_InKeys";
             this.find_InKeys.Size = new System.Drawing.Size(257, 26);
-            this.find_InKeys.TabIndex = 2;
+            this.find_InKeys.TabIndex = 1;
             this.find_InKeys.TabStop = true;
             this.find_InKeys.Text = "Find in Keys";
             this.find_InKeys.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@ namespace D2RModding_StrEdit
             this.textBox1.Margin = new System.Windows.Forms.Padding(0);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(287, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.onTextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onKeyPressed);
             // 

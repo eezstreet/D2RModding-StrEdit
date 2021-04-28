@@ -458,8 +458,8 @@ namespace D2RModding_StrEdit
         }
         private void DeleteCurrentKey()
         {
-            stringListBox.SelectedIndex = -1;
             workspace.RemoveString(selectedStrId);
+            stringListBox.SelectedIndex = -1;
             modified = true;
         }
         private void ScrollKeyUp()
@@ -550,6 +550,31 @@ namespace D2RModding_StrEdit
         {
             resurrectedTextBox.Focus();
             resurrectedTextBox.SelectAll();
+        }
+        private void ExportAsSpreadsheet()
+        {
+            // open a file dlg, use this as the spreadsheet to export to
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "tab-delimited txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            dlg.DefaultExt = ".txt";
+
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = dlg.FileName;
+
+            }
+        }
+        private void CompileSpreadsheet()
+        {
+            // open a file dlg, use this as the spreadsheet to compile
+        }
+        private void onExportAsSpreadsheet_Pressed(object sender, EventArgs e)
+        {
+            ExportAsSpreadsheet();
+        }
+        private void onCompileSpreadsheet_Pressed(object sender, EventArgs e)
+        {
+            CompileSpreadsheet();
         }
     }
 }

@@ -85,6 +85,10 @@ namespace D2RModding_StrEdit
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.resurrectedTextBox = new System.Windows.Forms.TextBox();
+            this.exportAsSpreadsheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compileSpreadsheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             label1 = new System.Windows.Forms.Label();
             label_resurrected = new System.Windows.Forms.Label();
             label_legacy = new System.Windows.Forms.Label();
@@ -292,7 +296,7 @@ namespace D2RModding_StrEdit
             this.helpToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(713, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(884, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -301,6 +305,10 @@ namespace D2RModding_StrEdit
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openWorkspaceToolStripMenuItem,
             this.saveWorkspaceToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exportAsSpreadsheetToolStripMenuItem,
+            this.compileSpreadsheetToolStripMenuItem,
+            this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -412,9 +420,9 @@ namespace D2RModding_StrEdit
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 591);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 606);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(713, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -447,17 +455,18 @@ namespace D2RModding_StrEdit
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(713, 567);
-            this.flowLayoutPanel1.TabIndex = 3;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(884, 582);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // topOptionsGroupBox
             // 
+            this.topOptionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.topOptionsGroupBox.BackColor = System.Drawing.SystemColors.Control;
             this.topOptionsGroupBox.Controls.Add(this.flowLayoutPanel2);
-            this.topOptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.topOptionsGroupBox.Location = new System.Drawing.Point(3, 3);
             this.topOptionsGroupBox.Name = "topOptionsGroupBox";
             this.topOptionsGroupBox.Padding = new System.Windows.Forms.Padding(3, 1, 3, 2);
-            this.topOptionsGroupBox.Size = new System.Drawing.Size(698, 42);
+            this.topOptionsGroupBox.Size = new System.Drawing.Size(879, 42);
             this.topOptionsGroupBox.TabIndex = 0;
             this.topOptionsGroupBox.TabStop = false;
             this.topOptionsGroupBox.Text = "String Options";
@@ -474,7 +483,7 @@ namespace D2RModding_StrEdit
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 14);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(692, 26);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(873, 26);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // languageComboBox
@@ -539,7 +548,7 @@ namespace D2RModding_StrEdit
             this.addButton.Location = new System.Drawing.Point(386, 3);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 5;
+            this.addButton.TabIndex = 2;
             this.addButton.Text = "Add New";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.onAddPressed_Event);
@@ -549,7 +558,7 @@ namespace D2RModding_StrEdit
             this.removeButton.Location = new System.Drawing.Point(467, 3);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
-            this.removeButton.TabIndex = 6;
+            this.removeButton.TabIndex = 3;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.deleteKeyStripMenuItem_Click);
@@ -578,8 +587,8 @@ namespace D2RModding_StrEdit
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(698, 513);
-            this.splitContainer1.SplitterDistance = 232;
+            this.splitContainer1.Size = new System.Drawing.Size(879, 513);
+            this.splitContainer1.SplitterDistance = 216;
             this.splitContainer1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -595,7 +604,7 @@ namespace D2RModding_StrEdit
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.898635F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.10136F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(232, 513);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(216, 513);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel5
@@ -605,7 +614,7 @@ namespace D2RModding_StrEdit
             this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(232, 19);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(216, 19);
             this.flowLayoutPanel5.TabIndex = 0;
             // 
             // stringListBox
@@ -617,8 +626,8 @@ namespace D2RModding_StrEdit
             this.stringListBox.FormattingEnabled = true;
             this.stringListBox.Location = new System.Drawing.Point(3, 22);
             this.stringListBox.Name = "stringListBox";
-            this.stringListBox.Size = new System.Drawing.Size(226, 485);
-            this.stringListBox.TabIndex = 1;
+            this.stringListBox.Size = new System.Drawing.Size(210, 485);
+            this.stringListBox.TabIndex = 5;
             this.stringListBox.SelectedIndexChanged += new System.EventHandler(this.changeSelectedString);
             // 
             // splitContainer2
@@ -634,9 +643,11 @@ namespace D2RModding_StrEdit
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.splitContainer2.Size = new System.Drawing.Size(462, 513);
-            this.splitContainer2.SplitterDistance = 153;
+            this.splitContainer2.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer2.Size = new System.Drawing.Size(659, 513);
+            this.splitContainer2.SplitterDistance = 279;
             this.splitContainer2.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -651,7 +662,7 @@ namespace D2RModding_StrEdit
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.898635F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.10136F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(153, 513);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(279, 513);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // flowLayoutPanel4
@@ -665,25 +676,28 @@ namespace D2RModding_StrEdit
             // 
             // legacyTextBox
             // 
+            this.legacyTextBox.AcceptsReturn = true;
+            this.legacyTextBox.AllowDrop = true;
             this.legacyTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.legacyTextBox.Enabled = false;
             this.legacyTextBox.Location = new System.Drawing.Point(3, 22);
             this.legacyTextBox.Multiline = true;
             this.legacyTextBox.Name = "legacyTextBox";
-            this.legacyTextBox.Size = new System.Drawing.Size(147, 488);
-            this.legacyTextBox.TabIndex = 1;
+            this.legacyTextBox.Size = new System.Drawing.Size(273, 488);
+            this.legacyTextBox.TabIndex = 6;
+            this.legacyTextBox.WordWrap = false;
             this.legacyTextBox.TextChanged += new System.EventHandler(this.onLegacyStringEdited);
             this.legacyTextBox.Enter += new System.EventHandler(this.onTextGainedFocus);
             this.legacyTextBox.Leave += new System.EventHandler(this.onTextLostFocus);
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.resurrectedTextBox, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.898635F));
@@ -693,8 +707,8 @@ namespace D2RModding_StrEdit
             // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.flowLayoutPanel3.Controls.Add(label_resurrected);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -703,25 +717,53 @@ namespace D2RModding_StrEdit
             // 
             // resurrectedTextBox
             // 
+            this.resurrectedTextBox.AcceptsReturn = true;
+            this.resurrectedTextBox.AllowDrop = true;
             this.resurrectedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resurrectedTextBox.Enabled = false;
             this.resurrectedTextBox.Location = new System.Drawing.Point(3, 22);
             this.resurrectedTextBox.Multiline = true;
             this.resurrectedTextBox.Name = "resurrectedTextBox";
             this.resurrectedTextBox.Size = new System.Drawing.Size(299, 488);
-            this.resurrectedTextBox.TabIndex = 1;
+            this.resurrectedTextBox.TabIndex = 7;
+            this.resurrectedTextBox.WordWrap = false;
             this.resurrectedTextBox.TextChanged += new System.EventHandler(this.onResurrectedStringEdited);
             this.resurrectedTextBox.Enter += new System.EventHandler(this.onTextGainedFocus);
             this.resurrectedTextBox.Leave += new System.EventHandler(this.onTextLostFocus);
+            // 
+            // exportAsSpreadsheetToolStripMenuItem
+            // 
+            this.exportAsSpreadsheetToolStripMenuItem.Name = "exportAsSpreadsheetToolStripMenuItem";
+            this.exportAsSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.exportAsSpreadsheetToolStripMenuItem.Text = "Export as Spreadsheet...";
+            this.exportAsSpreadsheetToolStripMenuItem.Click += new System.EventHandler(this.onExportAsSpreadsheet_Pressed);
+            // 
+            // compileSpreadsheetToolStripMenuItem
+            // 
+            this.compileSpreadsheetToolStripMenuItem.Name = "compileSpreadsheetToolStripMenuItem";
+            this.compileSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.compileSpreadsheetToolStripMenuItem.Text = "Compile Spreadsheet...";
+            this.compileSpreadsheetToolStripMenuItem.Click += new System.EventHandler(this.onCompileSpreadsheet_Pressed);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(204, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 613);
+            this.ClientSize = new System.Drawing.Size(884, 628);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "StrEdit";
             this.menuStrip2.ResumeLayout(false);
@@ -795,6 +837,10 @@ namespace D2RModding_StrEdit
         private System.Windows.Forms.ToolStripMenuItem addStringToolStripMenuItem;
         protected System.Windows.Forms.Button addButton;
         protected System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exportAsSpreadsheetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compileSpreadsheetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

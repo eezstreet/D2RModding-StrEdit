@@ -30,14 +30,34 @@ namespace D2RModding_StrEdit
         private void InitializeComponent()
         {
             System.Windows.Forms.GroupBox groupBox1;
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(groupBox1, 2);
+            groupBox1.Controls.Add(this.textBox1);
+            groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupBox1.Location = new System.Drawing.Point(3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(274, 47);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "String Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(262, 20);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.onStringChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -61,7 +81,7 @@ namespace D2RModding_StrEdit
             this.cancelButton.Location = new System.Drawing.Point(3, 56);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(134, 26);
-            this.cancelButton.TabIndex = 0;
+            this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.onCancelPressed);
@@ -72,30 +92,10 @@ namespace D2RModding_StrEdit
             this.okButton.Location = new System.Drawing.Point(143, 56);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(134, 26);
-            this.okButton.TabIndex = 1;
+            this.okButton.TabIndex = 3;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.onOkPressed);
-            // 
-            // groupBox1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(groupBox1, 2);
-            groupBox1.Controls.Add(this.textBox1);
-            groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupBox1.Location = new System.Drawing.Point(3, 3);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(274, 47);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "String Name";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.onStringChanged);
             // 
             // AddString
             // 
@@ -105,9 +105,9 @@ namespace D2RModding_StrEdit
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AddString";
             this.Text = "Add New String";
-            this.tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

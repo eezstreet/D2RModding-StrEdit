@@ -87,30 +87,56 @@ namespace D2RModding_StrEdit
 
         public void GetStringsInBank(string bankName, out StringEntry[] legacy, out StringEntry[] resurrected)
         {
-            legacy = legacyBanks[bankName];
+            if(!legacyBanks.ContainsKey(bankName))
+            {
+                legacy = resurrectedBanks[bankName];
+            }
+            else
+            {
+                legacy = legacyBanks[bankName];
+            }
             resurrected = resurrectedBanks[bankName];
         }
 
         public void GetStringByKey(string bankName, string keyName, StringEntry.StringLanguages language, out string legacy, out string resurrected)
         {
-            legacy = (from se in legacyBanks[bankName] where se.Key.Equals(keyName) select se.getStringForLanguage(language)).First();
-            resurrected = (from se in resurrectedBanks[bankName] where se.Key.Equals(keyName) select se.getStringForLanguage(language)).First();
+            StringEntry[] legacyBank, resurrectedBank;
+            GetStringsInBank(bankName, out legacyBank, out resurrectedBank);
+            legacy = (from se in legacyBank where se.Key.Equals(keyName) select se.getStringForLanguage(language)).First();
+            resurrected = (from se in resurrectedBank where se.Key.Equals(keyName) select se.getStringForLanguage(language)).First();
         }
         public void GetStringById(string bankName, int id, StringEntry.StringLanguages language, out string legacy, out string resurrected)
         {
-            legacy = (from se in legacyBanks[bankName] where se.id == id select se.getStringForLanguage(language)).First();
-            resurrected = (from se in resurrectedBanks[bankName] where se.id == id select se.getStringForLanguage(language)).First();
+            StringEntry[] legacyBank, resurrectedBank;
+            GetStringsInBank(bankName, out legacyBank, out resurrectedBank);
+            var legacyItems = from se in legacyBank where se.id == id select se.getStringForLanguage(language);
+            var resurrectedItems = from se in resurrectedBank where se.id == id select se.getStringForLanguage(language);
+            resurrected = resurrectedItems.First();
+            if (!legacyItems.Any() || legacyItems == null)
+            {
+                legacy = resurrected;
+            }
+            else
+            {
+                legacy = legacyItems.First();
+            }
+            
         }
         public ref StringEntry GetLegacyEntryById(string bankName, int id)
         {
-            for(var i = 0; i < legacyBanks[bankName].Length; i++)
+            if(!legacyBanks.ContainsKey(bankName))
+            {
+                return ref GetResurrectedEntryById(bankName, id);
+            }
+
+            for (var i = 0; i < legacyBanks[bankName].Length; i++)
             {
                 if(legacyBanks[bankName][i].id == id)
                 {
                     return ref legacyBanks[bankName][i];
                 }
             }
-            throw new System.InvalidOperationException("Not found");
+            throw new InvalidOperationException("Not found");
         }
         public ref StringEntry GetResurrectedEntryById(string bankName, int id)
         {
@@ -122,6 +148,17 @@ namespace D2RModding_StrEdit
                 }
             }
             throw new System.InvalidOperationException("Not found");
+        }
+        public void CopyResurrectedToLegacy(string bankName, int id)
+        {
+            for(var i = 0; i < resurrectedBanks[bankName].Length; i++)
+            {
+                if(resurrectedBanks[bankName][i].id == id)
+                {
+                    legacyBanks[bankName] = legacyBanks[bankName].Append(resurrectedBanks[bankName][i]).ToArray();
+                    return;
+                }
+            }
         }
         public void GetEntriesById(string bankName, int id, out StringEntry legacy, out StringEntry resurrected)
         {
@@ -211,7 +248,17 @@ namespace D2RModding_StrEdit
         }
         public void ChangeLegacyStringTo(string bank, int id, string newString, StringEntry.StringLanguages language)
         {
-            GetLegacyEntryById(bank, id).setStringForLanguage(language, newString);
+            try
+            {
+                GetLegacyEntryById(bank, id).setStringForLanguage(language, newString);
+            }
+            catch (InvalidOperationException)
+            {
+                // can happen if legacy didn't have it to begin with
+                CopyResurrectedToLegacy(bank, id);
+                ChangeLegacyStringTo(bank, id, newString, language);
+            }
+            
         }
         public void ChangeResurrectedStringTo(string bank, int id, string newString, StringEntry.StringLanguages language)
         {
@@ -243,6 +290,51 @@ namespace D2RModding_StrEdit
                 string serialized = JsonSerializer.Serialize(resurrectedBanks[key], options);
                 File.WriteAllText(directory + "\\strings\\" + key + ".json", serialized);
             }
+        }
+
+        public void ExportAsExcel(string filePath)
+        {
+            var Filestream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
+            var stream = new StreamWriter(Filestream);
+
+            stream.WriteLine("Bank\tKey\tID\tenUS (Legacy)\tenUS (Resurrected)\tzhTW (Legacy)\tzhTW (Resurrected)\tdeDE (Legacy)\tdeDE (Resurrected)\tesES (Legacy)\tesES (Resurrected)\tfrFR (Legacy)\tfrFR (Resurrected)\titIT (Legacy)\titIT (Resurrected)\tkokR (Legacy)\tkoKR (Resurrected)\tplPL (Legacy)\tplPL (Resurrected)\tesMX (Legacy)\tesMX (Resurrected)\tjaJP (Legacy)\tjaJP (Resurrected)\tptBR (Legacy)\tptBR (Resurrected)\truRU (Legacy)\truRU (Resurrected)\tzhCN (Legacy)\tzhCN (Resurrected)\tEOL");
+            
+            // iterate through each bank...
+            var keys = resurrectedBanks.Keys;
+            foreach(var key in keys)
+            {
+                if(legacyBanks.ContainsKey(key))
+                {
+                    foreach(var value in legacyBanks[key])
+                    {
+                        var valRes = resurrectedBanks[key][value.id];
+                        //                Bank Key ID + 26 means 28 is max key
+                        stream.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}\t{12}\t{13}\t{14}\t{15}\t{16}\t{17}\t{18}\t{19}\t{20}\t{21}\t{22}\t{23}\t{24}\t{25}\t{26}\t{27}\t{28}\t0",
+                            key, value.Key, value.id,
+                            value.enUS, valRes.enUS,
+                            value.zhTW, valRes.zhTW,
+                            value.deDE, valRes.deDE,
+                            value.esES, valRes.esES,
+                            value.frFR, valRes.frFR,
+                            value.itIT, valRes.itIT,
+                            value.koKR, valRes.koKR,
+                            value.plPL, valRes.plPL,
+                            value.esMX, valRes.esMX,
+                            value.jaJP, valRes.jaJP,
+                            value.ptBR, valRes.ptBR,
+                            value.ruRU, valRes.ruRU,
+                            value.zhCN, valRes.zhCN);
+                    }
+                }
+                else
+                {
+
+                }
+            }
+        }
+        public static void CompileExcel(string filePath)
+        {
+
         }
     }
 }

@@ -30,14 +30,33 @@ namespace D2RModding_StrEdit
         private void InitializeComponent()
         {
             System.Windows.Forms.GroupBox groupBox1;
+            this.newName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.newName = new System.Windows.Forms.TextBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(groupBox1, 2);
+            groupBox1.Controls.Add(this.newName);
+            groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupBox1.Location = new System.Drawing.Point(3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(277, 54);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "New Name";
+            // 
+            // newName
+            // 
+            this.newName.Location = new System.Drawing.Point(9, 20);
+            this.newName.Name = "newName";
+            this.newName.Size = new System.Drawing.Size(262, 20);
+            this.newName.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -55,25 +74,13 @@ namespace D2RModding_StrEdit
             this.tableLayoutPanel1.Size = new System.Drawing.Size(283, 105);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(groupBox1, 2);
-            groupBox1.Controls.Add(this.newName);
-            groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupBox1.Location = new System.Drawing.Point(3, 3);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(277, 53);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "New Name";
-            // 
             // okButton
             // 
             this.okButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.okButton.Location = new System.Drawing.Point(144, 62);
+            this.okButton.Location = new System.Drawing.Point(144, 63);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(136, 40);
-            this.okButton.TabIndex = 1;
+            this.okButton.Size = new System.Drawing.Size(136, 39);
+            this.okButton.TabIndex = 2;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.onButtonClicked);
@@ -81,20 +88,13 @@ namespace D2RModding_StrEdit
             // cancelButton
             // 
             this.cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cancelButton.Location = new System.Drawing.Point(3, 62);
+            this.cancelButton.Location = new System.Drawing.Point(3, 63);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(135, 40);
-            this.cancelButton.TabIndex = 2;
+            this.cancelButton.Size = new System.Drawing.Size(135, 39);
+            this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.onButtonClicked);
-            // 
-            // newName
-            // 
-            this.newName.Location = new System.Drawing.Point(9, 20);
-            this.newName.Name = "newName";
-            this.newName.Size = new System.Drawing.Size(262, 20);
-            this.newName.TabIndex = 0;
             // 
             // RenameKey
             // 
@@ -104,9 +104,9 @@ namespace D2RModding_StrEdit
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "RenameKey";
             this.Text = "Rename Key";
-            this.tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
