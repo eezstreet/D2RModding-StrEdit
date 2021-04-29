@@ -733,6 +733,7 @@ namespace D2RModding_StrEdit
             // 
             // exportAsSpreadsheetToolStripMenuItem
             // 
+            this.exportAsSpreadsheetToolStripMenuItem.Enabled = false;
             this.exportAsSpreadsheetToolStripMenuItem.Name = "exportAsSpreadsheetToolStripMenuItem";
             this.exportAsSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.exportAsSpreadsheetToolStripMenuItem.Text = "Export as Spreadsheet...";
@@ -740,6 +741,7 @@ namespace D2RModding_StrEdit
             // 
             // compileSpreadsheetToolStripMenuItem
             // 
+            this.compileSpreadsheetToolStripMenuItem.Enabled = false;
             this.compileSpreadsheetToolStripMenuItem.Name = "compileSpreadsheetToolStripMenuItem";
             this.compileSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.compileSpreadsheetToolStripMenuItem.Text = "Compile Spreadsheet...";
