@@ -527,6 +527,10 @@ namespace D2RModding_StrEdit
             StringEntry[] legacy, resurrected;
             AddString.AddStringEventArgs e1 = e as AddString.AddStringEventArgs;
             StringEntryEqualityComparer eq = new StringEntryEqualityComparer();
+            if(e1.newStringName == null)
+            {
+                return;
+            }
             workspace.AddString(e1.newStringName, selectedBank);
             workspace.GetStringsInBank(selectedBank, out legacy, out resurrected);
             var newDataSource = legacy.Union(resurrected, eq).ToArray();
