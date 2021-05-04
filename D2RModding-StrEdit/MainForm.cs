@@ -230,55 +230,55 @@ namespace D2RModding_StrEdit
             ToolStripMenuItem item = sender as ToolStripMenuItem;
             if(item.Name == "color_lightGrey")
             {
-                insertColorCode("Ã¿c0");
+                insertColorCode("ÿc0");
             }
             else if(item.Name == "color_red")
             {
-                insertColorCode("Ã¿c1");
+                insertColorCode("ÿc1");
             }
             else if(item.Name == "color_brightGreen")
             {
-                insertColorCode("Ã¿c2");
+                insertColorCode("ÿc2");
             }
             else if(item.Name == "color_blue")
             {
-                insertColorCode("Ã¿c3");
+                insertColorCode("ÿc3");
             }
             else if(item.Name == "color_gold")
             {
-                insertColorCode("Ã¿c4");
+                insertColorCode("ÿc4");
             }
             else if(item.Name == "color_darkGrey")
             {
-                insertColorCode("Ã¿c5");
+                insertColorCode("ÿc5");
             }
             else if(item.Name == "color_transparent")
             {
-                insertColorCode("Ã¿c6");
+                insertColorCode("ÿc6");
             }
             else if(item.Name == "color_tan")
             {
-                insertColorCode("Ã¿c7");
+                insertColorCode("ÿc7");
             }
             else if(item.Name == "color_orange")
             {
-                insertColorCode("Ã¿c8");
+                insertColorCode("ÿc8");
             }
             else if(item.Name == "color_yellow")
             {
-                insertColorCode("Ã¿c9");
+                insertColorCode("ÿc9");
             }
             else if(item.Name == "color_darkGreen")
             {
-                insertColorCode("Ã¿c:");
+                insertColorCode("ÿc:");
             }
             else if(item.Name == "color_purple")
             {
-                insertColorCode("Ã¿c;");
+                insertColorCode("ÿc;");
             }
             else if(item.Name == "color_white")
             {
-                insertColorCode("Ã¿c/");
+                insertColorCode("ÿc/");
             }
         }
         private void openFindReplace()
