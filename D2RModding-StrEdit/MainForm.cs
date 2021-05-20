@@ -429,9 +429,19 @@ namespace D2RModding_StrEdit
                 onInsertPressed();
                 return true;
             }*/
-            else if(keyData == (Keys.Control | Keys.R))
-            { // Ctrl+R = add
+            else if(keyData == (Keys.Control | Keys.R | Keys.Alt))
+            { // Ctrl+Alt+R = add
                 onAddPressed();
+                return true;
+            }
+            else if(keyData == (Keys.Control | Keys.R))
+            {
+                onReversePressed();
+                return true;
+            }
+            else if(keyData == (Keys.Control | Keys.Alt | Keys.Right))
+            {
+                onCopyFromKeyToValuePressed();
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
@@ -518,6 +528,27 @@ namespace D2RModding_StrEdit
             add.onAddCommitted += onAddCommitted;
             add.ShowDialog();
         }
+        private void onCopyFromKeyToValuePressed()
+        {
+            string key = stringListBox.SelectedItem.ToString();
+            resurrectedTextBox.Text = key;
+            legacyTextBox.Text = key;
+        }
+        private void onReversePressed()
+        {
+            // reverse both resurrected and classic lines
+            string resurrected = resurrectedTextBox.Text;
+            string legacy = legacyTextBox.Text;
+            string[] resStrings = resurrected.Split('\n');
+            string[] legStrings = legacy.Split('\n');
+            string[] revResStrings = resStrings.Reverse().ToArray();
+            string[] revLegStrings = legStrings.Reverse().ToArray();
+            revResStrings[0] = revResStrings[0] + "\r\n";
+            revLegStrings[0] = revLegStrings[0] + "\r\n";
+
+            resurrectedTextBox.Text = string.Join("\n", revResStrings);
+            legacyTextBox.Text = string.Join("\n", revLegStrings);
+        }
         private void onInsertCommitted(object sender, EventArgs e)
         {
 
@@ -545,6 +576,10 @@ namespace D2RModding_StrEdit
         private void onAddPressed_Event(object sender, EventArgs e)
         {
             onAddPressed();
+        }
+        private void onReversePressed_Event(object sender, EventArgs e)
+        {
+            onReversePressed();
         }
         private void SelectStringList()
         {

@@ -52,13 +52,19 @@ namespace D2RModding_StrEdit
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openWorkspaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveWorkspaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportAsSpreadsheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compileSpreadsheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findReplaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.changeIndexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameIndexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteIndexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reverseLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.d2RModdingDiscordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,10 +91,6 @@ namespace D2RModding_StrEdit
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.resurrectedTextBox = new System.Windows.Forms.TextBox();
-            this.exportAsSpreadsheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compileSpreadsheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             label1 = new System.Windows.Forms.Label();
             label_resurrected = new System.Windows.Forms.Label();
             label_legacy = new System.Windows.Forms.Label();
@@ -194,7 +196,7 @@ namespace D2RModding_StrEdit
             color_purple,
             color_white});
             insertColorCodeToolStripMenuItem.Name = "insertColorCodeToolStripMenuItem";
-            insertColorCodeToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            insertColorCodeToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             insertColorCodeToolStripMenuItem.Text = "Insert Color Code";
             // 
             // color_lightGrey
@@ -331,6 +333,32 @@ namespace D2RModding_StrEdit
             this.saveWorkspaceToolStripMenuItem.Text = "Save Workspace";
             this.saveWorkspaceToolStripMenuItem.Click += new System.EventHandler(this.saveWorkspaceToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(204, 6);
+            // 
+            // exportAsSpreadsheetToolStripMenuItem
+            // 
+            this.exportAsSpreadsheetToolStripMenuItem.Enabled = false;
+            this.exportAsSpreadsheetToolStripMenuItem.Name = "exportAsSpreadsheetToolStripMenuItem";
+            this.exportAsSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.exportAsSpreadsheetToolStripMenuItem.Text = "Export as Spreadsheet...";
+            this.exportAsSpreadsheetToolStripMenuItem.Click += new System.EventHandler(this.onExportAsSpreadsheet_Pressed);
+            // 
+            // compileSpreadsheetToolStripMenuItem
+            // 
+            this.compileSpreadsheetToolStripMenuItem.Enabled = false;
+            this.compileSpreadsheetToolStripMenuItem.Name = "compileSpreadsheetToolStripMenuItem";
+            this.compileSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.compileSpreadsheetToolStripMenuItem.Text = "Compile Spreadsheet...";
+            this.compileSpreadsheetToolStripMenuItem.Click += new System.EventHandler(this.onCompileSpreadsheet_Pressed);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -342,11 +370,13 @@ namespace D2RModding_StrEdit
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.findReplaceToolStripMenuItem,
+            this.toolStripSeparator3,
             insertColorCodeToolStripMenuItem,
             this.changeIndexToolStripMenuItem,
             this.addStringToolStripMenuItem,
             this.renameIndexToolStripMenuItem,
-            this.deleteIndexToolStripMenuItem});
+            this.deleteIndexToolStripMenuItem,
+            this.reverseLinesToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -355,23 +385,28 @@ namespace D2RModding_StrEdit
             // 
             this.findReplaceToolStripMenuItem.Name = "findReplaceToolStripMenuItem";
             this.findReplaceToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+F";
-            this.findReplaceToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.findReplaceToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.findReplaceToolStripMenuItem.Text = "Find...";
             this.findReplaceToolStripMenuItem.Click += new System.EventHandler(this.onFindReplaceSelected);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(191, 6);
             // 
             // changeIndexToolStripMenuItem
             // 
             this.changeIndexToolStripMenuItem.Enabled = false;
             this.changeIndexToolStripMenuItem.Name = "changeIndexToolStripMenuItem";
-            this.changeIndexToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.changeIndexToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.changeIndexToolStripMenuItem.Text = "Change Index";
             this.changeIndexToolStripMenuItem.Click += new System.EventHandler(this.changeIndexToolStripMenuItem_Click);
             // 
             // addStringToolStripMenuItem
             // 
             this.addStringToolStripMenuItem.Name = "addStringToolStripMenuItem";
-            this.addStringToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+R";
-            this.addStringToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.addStringToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Alt+R";
+            this.addStringToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.addStringToolStripMenuItem.Text = "Add String";
             this.addStringToolStripMenuItem.Click += new System.EventHandler(this.onAddPressed_Event);
             // 
@@ -379,7 +414,7 @@ namespace D2RModding_StrEdit
             // 
             this.renameIndexToolStripMenuItem.Name = "renameIndexToolStripMenuItem";
             this.renameIndexToolStripMenuItem.ShortcutKeyDisplayString = "F2";
-            this.renameIndexToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.renameIndexToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.renameIndexToolStripMenuItem.Text = "Rename String";
             this.renameIndexToolStripMenuItem.Click += new System.EventHandler(this.renameIndexToolStripMenuItem_Click);
             // 
@@ -387,9 +422,17 @@ namespace D2RModding_StrEdit
             // 
             this.deleteIndexToolStripMenuItem.Name = "deleteIndexToolStripMenuItem";
             this.deleteIndexToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Del";
-            this.deleteIndexToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.deleteIndexToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.deleteIndexToolStripMenuItem.Text = "Delete String";
             this.deleteIndexToolStripMenuItem.Click += new System.EventHandler(this.deleteKeyStripMenuItem_Click);
+            // 
+            // reverseLinesToolStripMenuItem
+            // 
+            this.reverseLinesToolStripMenuItem.Name = "reverseLinesToolStripMenuItem";
+            this.reverseLinesToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+R";
+            this.reverseLinesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.reverseLinesToolStripMenuItem.Text = "Reverse Lines";
+            this.reverseLinesToolStripMenuItem.Click += new System.EventHandler(this.onReversePressed_Event);
             // 
             // helpToolStripMenuItem
             // 
@@ -435,7 +478,7 @@ namespace D2RModding_StrEdit
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(462, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(633, 17);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
@@ -731,32 +774,6 @@ namespace D2RModding_StrEdit
             this.resurrectedTextBox.Enter += new System.EventHandler(this.onTextGainedFocus);
             this.resurrectedTextBox.Leave += new System.EventHandler(this.onTextLostFocus);
             // 
-            // exportAsSpreadsheetToolStripMenuItem
-            // 
-            this.exportAsSpreadsheetToolStripMenuItem.Enabled = false;
-            this.exportAsSpreadsheetToolStripMenuItem.Name = "exportAsSpreadsheetToolStripMenuItem";
-            this.exportAsSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.exportAsSpreadsheetToolStripMenuItem.Text = "Export as Spreadsheet...";
-            this.exportAsSpreadsheetToolStripMenuItem.Click += new System.EventHandler(this.onExportAsSpreadsheet_Pressed);
-            // 
-            // compileSpreadsheetToolStripMenuItem
-            // 
-            this.compileSpreadsheetToolStripMenuItem.Enabled = false;
-            this.compileSpreadsheetToolStripMenuItem.Name = "compileSpreadsheetToolStripMenuItem";
-            this.compileSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.compileSpreadsheetToolStripMenuItem.Text = "Compile Spreadsheet...";
-            this.compileSpreadsheetToolStripMenuItem.Click += new System.EventHandler(this.onCompileSpreadsheet_Pressed);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(204, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -843,6 +860,8 @@ namespace D2RModding_StrEdit
         private System.Windows.Forms.ToolStripMenuItem exportAsSpreadsheetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compileSpreadsheetToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem reverseLinesToolStripMenuItem;
     }
 }
 
