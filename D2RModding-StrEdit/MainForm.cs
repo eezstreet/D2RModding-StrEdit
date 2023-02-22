@@ -14,6 +14,20 @@ namespace D2RModding_StrEdit
         private string selectedBank = "";
         private StringEntry.StringLanguages language = StringEntry.StringLanguages.LANG_enUS;
         private TextBox focusedTextBox;
+        private int selectedColor = 0;
+
+        private string[] colorCodeNames = new string[] { 
+            "White 1", "White 2", "Gray 1", "Gray 2", "Gray 3", "Black 1", "Black 2", "Light Red",
+            "Red 1", "Red 2", "Dark Red", "Orange 1", "Orange 2", "Orange 3", "Orange 4", "Light Gold 1",
+            "Light Gold 2", "Gold 1", "Gold 2", "Yellow 1", "Yellow 2", "Green 1", "Green 2", "Green 3",
+            "Green 4", "Dark Green 1", "Dark Green 2", "Turquoise", "Sky Blue", "Light Blue 1", "Light Blue 2",
+            "Blue 1", "Blue 2", "Light Pink", "Pink", "Purple"
+        };
+        private string[] colorCodeValues = new string[] { 
+            "ÿc0", "ÿc=", "ÿc5", "ÿcK", "ÿcI", "ÿc6", "ÿcM", "ÿcE", "ÿc1", "ÿcU", "ÿcS", "ÿc@", 
+            "ÿc8", "ÿcJ", "ÿcL", "ÿc7", "ÿcH", "ÿc4", "ÿcD", "ÿc9", "ÿcR", "ÿc2", "ÿcQ", "ÿcC", 
+            "ÿc<", "ÿcA", "ÿc:", "ÿcN", "ÿcT", "ÿcF", "ÿcP", "ÿc3", "ÿcB", "ÿcG", "ÿcO", "ÿc;"
+        };
 
         public string CurrentWorkspace
         {
@@ -28,10 +42,19 @@ namespace D2RModding_StrEdit
             set { modified = value; UpdateText(); }
         }
 
+        private void AddColors()
+        {
+            foreach (string s in colorCodeNames)
+            {
+                colorSelectBox.Items.Add(s);
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
             UpdateText();
+            AddColors();
         }
 
         public void UpdateText()
@@ -80,6 +103,8 @@ namespace D2RModding_StrEdit
             stringBankComboBox.Enabled = true;
             languageComboBox.SelectedIndex = 0;
             stringBankComboBox.SelectedIndex = 0;
+            colorButton.Enabled = true;
+            colorSelectBox.Enabled = true;
         }
 
         private void changeIndexToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,7 +159,7 @@ namespace D2RModding_StrEdit
          */
         private void d2RModdingDiscordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://discord.gg/gvsJBRd4KZ");
+            System.Diagnostics.Process.Start("https://discord.gg/MMgEH95daz");
         }
 
         /**
@@ -213,74 +238,15 @@ namespace D2RModding_StrEdit
 
         private void insertColorCode(string text)
         {
-            if(focusedTextBox != null)
-            {
-                focusedTextBox.Paste(text);
-            }
-        }
-
-        private void onColorCodeInserted(object sender, EventArgs e)
-        {
-            if(focusedTextBox == null)
+            if (focusedTextBox == null)
             {
                 MessageBox.Show("Please insert your cursor in some text.", "Error", MessageBoxButtons.OK);
                 return;
             }
 
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if(item.Name == "color_lightGrey")
-            {
-                insertColorCode("ÿc0");
-            }
-            else if(item.Name == "color_red")
-            {
-                insertColorCode("ÿc1");
-            }
-            else if(item.Name == "color_brightGreen")
-            {
-                insertColorCode("ÿc2");
-            }
-            else if(item.Name == "color_blue")
-            {
-                insertColorCode("ÿc3");
-            }
-            else if(item.Name == "color_gold")
-            {
-                insertColorCode("ÿc4");
-            }
-            else if(item.Name == "color_darkGrey")
-            {
-                insertColorCode("ÿc5");
-            }
-            else if(item.Name == "color_transparent")
-            {
-                insertColorCode("ÿc6");
-            }
-            else if(item.Name == "color_tan")
-            {
-                insertColorCode("ÿc7");
-            }
-            else if(item.Name == "color_orange")
-            {
-                insertColorCode("ÿc8");
-            }
-            else if(item.Name == "color_yellow")
-            {
-                insertColorCode("ÿc9");
-            }
-            else if(item.Name == "color_darkGreen")
-            {
-                insertColorCode("ÿc:");
-            }
-            else if(item.Name == "color_purple")
-            {
-                insertColorCode("ÿc;");
-            }
-            else if(item.Name == "color_white")
-            {
-                insertColorCode("ÿc/");
-            }
+            focusedTextBox.Paste(text);
         }
+
         private void openFindReplace()
         {
             FindReplace fr = new FindReplace();
@@ -333,6 +299,11 @@ namespace D2RModding_StrEdit
         }
         private void find_nextKey(string text)
         {
+            if (workspace == null)
+            {
+                return;
+            }
+
             string[] allMatchingKeys = workspace.FindKeysWithKeyMatching(text, selectedBank);
             if(allMatchingKeys.Length <= 0)
             {
@@ -347,6 +318,10 @@ namespace D2RModding_StrEdit
         }
         private void find_nextValue(string text)
         {
+            if (workspace == null) 
+            {
+                return;
+            }
             string[] allMatchingKeys = workspace.FindKeysWithTextMatching(text, selectedBank, language);
             if(allMatchingKeys.Length <= 0)
             {
@@ -362,6 +337,11 @@ namespace D2RModding_StrEdit
         private void Fr_FindClicked(object sender, EventArgs e)
         {
             FindReplace.FindEventArgs fea = e as FindReplace.FindEventArgs;
+
+            if (workspace == null)
+            {
+                return;
+            }
             
             if(fea.inKeys)
             {
@@ -468,6 +448,10 @@ namespace D2RModding_StrEdit
         }
         private void DeleteCurrentKey()
         {
+            if (workspace == null)
+            {
+                return;
+            }
             workspace.RemoveString(selectedStrId);
             
             StringEntry[] legacy, resurrected;
@@ -558,7 +542,7 @@ namespace D2RModding_StrEdit
             StringEntry[] legacy, resurrected;
             AddString.AddStringEventArgs e1 = e as AddString.AddStringEventArgs;
             StringEntryEqualityComparer eq = new StringEntryEqualityComparer();
-            if(e1.newStringName == null)
+            if(e1.newStringName == null || workspace == null)
             {
                 return;
             }
@@ -619,6 +603,17 @@ namespace D2RModding_StrEdit
         private void onCompileSpreadsheet_Pressed(object sender, EventArgs e)
         {
             CompileSpreadsheet();
+        }
+
+        private void colorSelectBox_IndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            selectedColor = cb.SelectedIndex;
+        }
+
+        private void colorButton_Click(object sender, EventArgs e)
+        {
+            insertColorCode(colorCodeValues[selectedColor]);
         }
     }
 }

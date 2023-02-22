@@ -100,5 +100,10 @@ namespace D2RModding_StrEdit
         {
 
         }
+
+        private void labelCopyright_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,20 +34,6 @@ namespace D2RModding_StrEdit
             System.Windows.Forms.Label label_legacy;
             System.Windows.Forms.Label label_string;
             System.Windows.Forms.Label label2;
-            System.Windows.Forms.ToolStripMenuItem insertColorCodeToolStripMenuItem;
-            System.Windows.Forms.ToolStripMenuItem color_lightGrey;
-            System.Windows.Forms.ToolStripMenuItem color_red;
-            System.Windows.Forms.ToolStripMenuItem color_brightGreen;
-            System.Windows.Forms.ToolStripMenuItem color_blue;
-            System.Windows.Forms.ToolStripMenuItem color_gold;
-            System.Windows.Forms.ToolStripMenuItem color_darkGrey;
-            System.Windows.Forms.ToolStripMenuItem color_transparent;
-            System.Windows.Forms.ToolStripMenuItem color_tan;
-            System.Windows.Forms.ToolStripMenuItem color_orange;
-            System.Windows.Forms.ToolStripMenuItem color_yellow;
-            System.Windows.Forms.ToolStripMenuItem color_darkGreen;
-            System.Windows.Forms.ToolStripMenuItem color_purple;
-            System.Windows.Forms.ToolStripMenuItem color_white;
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openWorkspaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +66,8 @@ namespace D2RModding_StrEdit
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.findReplaceButton = new System.Windows.Forms.Button();
+            this.colorSelectBox = new System.Windows.Forms.ComboBox();
+            this.colorButton = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -96,20 +84,6 @@ namespace D2RModding_StrEdit
             label_legacy = new System.Windows.Forms.Label();
             label_string = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
-            insertColorCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            color_lightGrey = new System.Windows.Forms.ToolStripMenuItem();
-            color_red = new System.Windows.Forms.ToolStripMenuItem();
-            color_brightGreen = new System.Windows.Forms.ToolStripMenuItem();
-            color_blue = new System.Windows.Forms.ToolStripMenuItem();
-            color_gold = new System.Windows.Forms.ToolStripMenuItem();
-            color_darkGrey = new System.Windows.Forms.ToolStripMenuItem();
-            color_transparent = new System.Windows.Forms.ToolStripMenuItem();
-            color_tan = new System.Windows.Forms.ToolStripMenuItem();
-            color_orange = new System.Windows.Forms.ToolStripMenuItem();
-            color_yellow = new System.Windows.Forms.ToolStripMenuItem();
-            color_darkGreen = new System.Windows.Forms.ToolStripMenuItem();
-            color_purple = new System.Windows.Forms.ToolStripMenuItem();
-            color_white = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -178,117 +152,6 @@ namespace D2RModding_StrEdit
             label2.TabIndex = 3;
             label2.Text = "Language";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // insertColorCodeToolStripMenuItem
-            // 
-            insertColorCodeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            color_lightGrey,
-            color_red,
-            color_brightGreen,
-            color_blue,
-            color_gold,
-            color_darkGrey,
-            color_transparent,
-            color_tan,
-            color_orange,
-            color_yellow,
-            color_darkGreen,
-            color_purple,
-            color_white});
-            insertColorCodeToolStripMenuItem.Name = "insertColorCodeToolStripMenuItem";
-            insertColorCodeToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            insertColorCodeToolStripMenuItem.Text = "Insert Color Code";
-            // 
-            // color_lightGrey
-            // 
-            color_lightGrey.Name = "color_lightGrey";
-            color_lightGrey.Size = new System.Drawing.Size(140, 22);
-            color_lightGrey.Text = "Light Grey";
-            color_lightGrey.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_red
-            // 
-            color_red.Name = "color_red";
-            color_red.Size = new System.Drawing.Size(140, 22);
-            color_red.Text = "Red";
-            color_red.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_brightGreen
-            // 
-            color_brightGreen.Name = "color_brightGreen";
-            color_brightGreen.Size = new System.Drawing.Size(140, 22);
-            color_brightGreen.Text = "Bright Green";
-            color_brightGreen.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_blue
-            // 
-            color_blue.Name = "color_blue";
-            color_blue.Size = new System.Drawing.Size(140, 22);
-            color_blue.Text = "Blue";
-            color_blue.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_gold
-            // 
-            color_gold.Name = "color_gold";
-            color_gold.Size = new System.Drawing.Size(140, 22);
-            color_gold.Text = "Gold";
-            color_gold.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_darkGrey
-            // 
-            color_darkGrey.Name = "color_darkGrey";
-            color_darkGrey.Size = new System.Drawing.Size(140, 22);
-            color_darkGrey.Text = "Dark Grey";
-            color_darkGrey.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_transparent
-            // 
-            color_transparent.Name = "color_transparent";
-            color_transparent.Size = new System.Drawing.Size(140, 22);
-            color_transparent.Text = "Transparent";
-            color_transparent.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_tan
-            // 
-            color_tan.Name = "color_tan";
-            color_tan.Size = new System.Drawing.Size(140, 22);
-            color_tan.Text = "Tan";
-            color_tan.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_orange
-            // 
-            color_orange.Name = "color_orange";
-            color_orange.Size = new System.Drawing.Size(140, 22);
-            color_orange.Text = "Orange";
-            color_orange.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_yellow
-            // 
-            color_yellow.Name = "color_yellow";
-            color_yellow.Size = new System.Drawing.Size(140, 22);
-            color_yellow.Text = "Yellow";
-            color_yellow.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_darkGreen
-            // 
-            color_darkGreen.Name = "color_darkGreen";
-            color_darkGreen.Size = new System.Drawing.Size(140, 22);
-            color_darkGreen.Text = "Dark Green";
-            color_darkGreen.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_purple
-            // 
-            color_purple.Name = "color_purple";
-            color_purple.Size = new System.Drawing.Size(140, 22);
-            color_purple.Text = "Purple";
-            color_purple.Click += new System.EventHandler(this.onColorCodeInserted);
-            // 
-            // color_white
-            // 
-            color_white.Name = "color_white";
-            color_white.Size = new System.Drawing.Size(140, 22);
-            color_white.Text = "White";
-            color_white.Click += new System.EventHandler(this.onColorCodeInserted);
             // 
             // menuStrip2
             // 
@@ -371,7 +234,6 @@ namespace D2RModding_StrEdit
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.findReplaceToolStripMenuItem,
             this.toolStripSeparator3,
-            insertColorCodeToolStripMenuItem,
             this.changeIndexToolStripMenuItem,
             this.addStringToolStripMenuItem,
             this.renameIndexToolStripMenuItem,
@@ -523,6 +385,8 @@ namespace D2RModding_StrEdit
             this.flowLayoutPanel2.Controls.Add(this.addButton);
             this.flowLayoutPanel2.Controls.Add(this.removeButton);
             this.flowLayoutPanel2.Controls.Add(this.findReplaceButton);
+            this.flowLayoutPanel2.Controls.Add(this.colorSelectBox);
+            this.flowLayoutPanel2.Controls.Add(this.colorButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 14);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -616,6 +480,28 @@ namespace D2RModding_StrEdit
             this.findReplaceButton.UseVisualStyleBackColor = true;
             this.findReplaceButton.Click += new System.EventHandler(this.onFindReplaceSelected);
             // 
+            // colorSelectBox
+            // 
+            this.colorSelectBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.colorSelectBox.Enabled = false;
+            this.colorSelectBox.FormattingEnabled = true;
+            this.colorSelectBox.Location = new System.Drawing.Point(636, 3);
+            this.colorSelectBox.Name = "colorSelectBox";
+            this.colorSelectBox.Size = new System.Drawing.Size(121, 21);
+            this.colorSelectBox.TabIndex = 5;
+            this.colorSelectBox.SelectedIndexChanged += new System.EventHandler(this.colorSelectBox_IndexChanged);
+            // 
+            // colorButton
+            // 
+            this.colorButton.Enabled = false;
+            this.colorButton.Location = new System.Drawing.Point(763, 3);
+            this.colorButton.Name = "colorButton";
+            this.colorButton.Size = new System.Drawing.Size(75, 23);
+            this.colorButton.TabIndex = 6;
+            this.colorButton.Text = "Insert Color";
+            this.colorButton.UseVisualStyleBackColor = true;
+            this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.SystemColors.Control;
@@ -657,7 +543,7 @@ namespace D2RModding_StrEdit
             this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(216, 19);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(216, 20);
             this.flowLayoutPanel5.TabIndex = 0;
             // 
             // stringListBox
@@ -667,10 +553,10 @@ namespace D2RModding_StrEdit
             | System.Windows.Forms.AnchorStyles.Right)));
             this.stringListBox.Enabled = false;
             this.stringListBox.FormattingEnabled = true;
-            this.stringListBox.Location = new System.Drawing.Point(3, 22);
+            this.stringListBox.Location = new System.Drawing.Point(3, 23);
             this.stringListBox.Name = "stringListBox";
             this.stringListBox.Size = new System.Drawing.Size(210, 485);
-            this.stringListBox.TabIndex = 5;
+            this.stringListBox.TabIndex = 7;
             this.stringListBox.SelectedIndexChanged += new System.EventHandler(this.changeSelectedString);
             // 
             // splitContainer2
@@ -723,11 +609,11 @@ namespace D2RModding_StrEdit
             this.legacyTextBox.AllowDrop = true;
             this.legacyTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.legacyTextBox.Enabled = false;
-            this.legacyTextBox.Location = new System.Drawing.Point(3, 22);
+            this.legacyTextBox.Location = new System.Drawing.Point(3, 23);
             this.legacyTextBox.Multiline = true;
             this.legacyTextBox.Name = "legacyTextBox";
-            this.legacyTextBox.Size = new System.Drawing.Size(273, 488);
-            this.legacyTextBox.TabIndex = 6;
+            this.legacyTextBox.Size = new System.Drawing.Size(273, 487);
+            this.legacyTextBox.TabIndex = 8;
             this.legacyTextBox.WordWrap = false;
             this.legacyTextBox.TextChanged += new System.EventHandler(this.onLegacyStringEdited);
             this.legacyTextBox.Enter += new System.EventHandler(this.onTextGainedFocus);
@@ -752,7 +638,7 @@ namespace D2RModding_StrEdit
             // 
             this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.flowLayoutPanel3.Controls.Add(label_resurrected);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 1);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(305, 19);
@@ -764,11 +650,11 @@ namespace D2RModding_StrEdit
             this.resurrectedTextBox.AllowDrop = true;
             this.resurrectedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resurrectedTextBox.Enabled = false;
-            this.resurrectedTextBox.Location = new System.Drawing.Point(3, 22);
+            this.resurrectedTextBox.Location = new System.Drawing.Point(3, 23);
             this.resurrectedTextBox.Multiline = true;
             this.resurrectedTextBox.Name = "resurrectedTextBox";
-            this.resurrectedTextBox.Size = new System.Drawing.Size(299, 488);
-            this.resurrectedTextBox.TabIndex = 7;
+            this.resurrectedTextBox.Size = new System.Drawing.Size(299, 487);
+            this.resurrectedTextBox.TabIndex = 9;
             this.resurrectedTextBox.WordWrap = false;
             this.resurrectedTextBox.TextChanged += new System.EventHandler(this.onResurrectedStringEdited);
             this.resurrectedTextBox.Enter += new System.EventHandler(this.onTextGainedFocus);
@@ -862,6 +748,8 @@ namespace D2RModding_StrEdit
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem reverseLinesToolStripMenuItem;
+        private System.Windows.Forms.ComboBox colorSelectBox;
+        private System.Windows.Forms.Button colorButton;
     }
 }
 

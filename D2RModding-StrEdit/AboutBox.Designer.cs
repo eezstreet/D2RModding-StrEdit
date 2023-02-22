@@ -98,7 +98,7 @@ namespace D2RModding_StrEdit
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(271, 17);
             this.labelVersion.TabIndex = 0;
-            this.labelVersion.Text = "v1.0.0";
+            this.labelVersion.Text = "v1.0.6";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCopyright
@@ -110,8 +110,9 @@ namespace D2RModding_StrEdit
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(271, 17);
             this.labelCopyright.TabIndex = 21;
-            this.labelCopyright.Text = "Copyright (c) 2021";
+            this.labelCopyright.Text = "Copyright (c) 2023";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelCopyright.Click += new System.EventHandler(this.labelCopyright_Click);
             // 
             // textBoxDescription
             // 
